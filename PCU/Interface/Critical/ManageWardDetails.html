@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html ng-app="SearchApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Patient</title>
+
+
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/coin-slider.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dynatable/0.3.1/jquery.dynatable.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+    <link rel="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker-standalone.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+    <script src="../Controller/controller.js"></script>
+    <script src="../Controller/app.js"></script>
+    <script src="../Controller/CriticalController.js"></script>
+
+
+</head>
+<body ng-controller="SearchController">
+<div id="page">
+    <div class="header"><img src="../img/logoPCU%20(2).jpg" height="174" width="721"/>
+        <h1 class="text-info">Ward Details Management</h1>
+
+    </div>
+</div>
+
+<div class="container">
+    <div class="navigation">
+        <div class="page-header">
+        </div>
+
+        <div class="well well-lg">
+            <div class="container-fluid">
+                <h3><strong>Add Ward Details</strong></h3>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Ward category </label>
+
+                                <select ng-model="ward.category" class="form-control">
+                                    <option value="">Select Ward category</option>
+                                    <option value="child">child</option>
+                                    <option value="paid">paid</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Ward No</label>
+                                <select ng-model="ward.No" class="form-control">
+                                    <option value="">Select Ward No</option>
+                                    <option value=1>1</option>
+                                    <option value=2>2</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Bed No</label>
+                                <select ng-model="ward.BedNo" class="form-control">
+                                    <option value="">Select Bed No</option>
+                                    <option value=256>256</option>
+                                    <option value=257>257</option>
+                                    <option value=258>258</option>
+                                    <option value=259>259</option>
+                                    <option value=260>260</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Patient ID</label>
+                                <select ng-model="ward.PatientId" class="form-control">
+                                    <option value="">Select Patient Id</option>
+                                    <option value="125468">125468</option>
+                                    <option value="456895">456895</option>
+                                    <option value="789562">789562</option>
+                                    <option value="789562">789562</option>
+                                    <option value="758964">758964</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="container">
+                            <div class='col-md-3'>
+                                <div class="form-group">
+                                    <label>Admitted Date</label>
+                                    <div class='input-group date' id='datetimepicker6'>
+                                        <input type='text' class="form-control"/>
+                                        <span class="input-group-addon">
+                                             <span class="glyphicon glyphicon-calendar"></span>
+                                         </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-3 '>
+                                <div class="form-group">
+                                    <label>Discharge Date Date</label>
+                                    <div class='input-group date' id='datetimepicker7'>
+                                        <input type='text' class="form-control"/>
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group pull-right">
+                                    <button class="btn btn-success" id="add" ng-click="Add(ward)">Add</button>
+                                    <button class="btn btn-warning" id="update" ng-click="UpdateTable()" onclick="enableAddButton()"
+                                            disabled>Update
+                                    </button>
+                                    <button class="btn btn-warning" id="clear" ng-click="clearData()" onclick="enableAddButton()">
+                                        Clear
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="page-header">
+            <h3><strong>Patient Details</strong></h3>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover" id="data-table">
+
+                        <tr>
+                            <th>Ward Category</th>
+                            <th>Ward No</th>
+                            <th>Bed No</th>
+                            <th>Admit date</th>
+                            <th>Doctor in charge</th>
+                            <th>Edit </th>
+                            <th>Delete</th>
+
+                        </tr>
+
+
+                        <tr >
+                            <td>Paid</td>
+                            <td>1</td>
+                            <td>4</td>
+                            <td>2016/07/08</td>
+                            <td>Dr.Koliya Fenando </td>
+                            <td>
+                                <button class="btn btn-warning btn-sm" ng-click="EditData(oneWard)"
+                                        onclick="enableUpdateButtons()">Edit <span
+                                    class="glyphicon glyphicon-pencil"></span></button>
+                            </td>
+                            <td>
+                                <button class="btn btn-danger btn-sm" ng-click="DeleteData(oneWard)">Delete <span
+                                        class="glyphicon glyphicon-trash"></span>
+                                </button>
+                            </td>
+
+                        </tr>
+
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group pull-right">
+
+
+                    <button class="btn btn-success btn-sm" ng-click="" onclick="">Save changers</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

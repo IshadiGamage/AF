@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html ng-app="SearchApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Assign Doctors</title>
+
+
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/coin-slider.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dynatable/0.3.1/jquery.dynatable.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+    <link rel="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker-standalone.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+    <script src="../Controller/controller.js"></script>
+    <script src="../Controller/app.js"></script>
+    <script src="../Controller/NonCritController.js"></script>
+
+
+</head>
+<body ng-controller="">
+<div id="page">
+    <div class="header"><img src="../img/logoPCU%20(2).jpg" height="174" width="721"/>
+        <h1 class="text-info">Doctor Management</h1>
+
+    </div>
+</div>
+
+<div class="container">
+    <div class="navigation">
+        <div class="page-header">
+        </div>
+
+        <div class="well well-lg">
+            <div class="container-fluid">
+                <h3><strong>Doctor Details</strong></h3>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Patient ID</label>
+                                <input type="text" placeholder="Search " ngmodel="fname" class="form-control">
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Department</label>
+                                <select ng-model="" class="form-control">
+                                    <option value="PATHOLOGY">PATHOLOGY</option>
+                                    <option value="RADIOLOGY">RADIOLOGY</option>
+                                    <option value="STD">STD</option>
+                                    <option value="CARDIOLOGY">CARDIOLOGY</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Ward Category</label>
+                                <select ng-model="ward.PatientId" class="form-control">
+                                    <option value="MEDICINE">MEDICINE</option>
+                                    <option value="SURGERY">SURGERY</option>
+                                    <option value="PAEDIATRICS">PAEDIATRICS</option>
+                                    <option value="CARDIOLOGY">CARDIOLOGY</option>
+                                    <option value="ONCOLOGY">ONCOLOGY</option>
+                                    <option value="OPTHALMOLOGY">OPTHALMOLOGY</option>
+                                    <option value="RHEUMATOLOGY">RHEUMATOLOGY</option>
+                                    <option value="NEUROLOGY">NEUROLOGY</option>
+                                    <option value="ENT">ENT</option>
+                                    <option value="DERMATOLOGY">DERMATOLOGY</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Consultant Name</label>
+                                <input type="text" placeholder="name " ngmodel="fname" class="form-control">
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class='col-md-3'>
+                                <div class="form-group">
+                                    <label>Consultation Id</label>
+                                    <input type='text' class="form-control" placeholder="id" ngmodel="fname"/>
+
+                                </div>
+                            </div>
+                            <div class='col-md-3'>
+                                <div class="form-group">
+                                    <label>Doctor Name</label>
+                                        <input type="text" placeholder="name" ngmodel="fname" class="form-control"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Number of Beds</label>
+                                <input type="text" placeholder="bed " ngmodel="fname" class="form-control">
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group pull-right">
+                                    <button class="btn btn-success" id="adddoc" ng-click="Add(ward)">Add</button>
+                                    <button class="btn btn-warning" id="cleardoc" ng-click="clearData()" onclick="enableAddButton()">
+                                        Clear
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="well well-lg">
+            <div class="container-fluid">
+                <h3><strong>Surgery Details</strong></h3>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Patient ID</label>
+                                <input type="text" placeholder="Search " ngmodel="fname" class="form-control">
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Department</label>
+                                <select ng-model="" class="form-control">
+                                    <option value="PATHOLOGY">PATHOLOGY</option>
+                                    <option value="RADIOLOGY">RADIOLOGY</option>
+                                    <option value="STD">STD</option>
+                                    <option value="CARDIOLOGY">CARDIOLOGY</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Ward No</label>
+                                <input type="text" placeholder="ward no" ngmodel="fname" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Bed No</label>
+                                <input type="text" placeholder="name " ngmodel="fname" class="form-control">
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class='col-md-3'>
+                                <div class="form-group">
+                                    <label>Surgery Category</label>
+                                    <select class="form-control">
+                                        <option value="Eye Surgery">Eye Surgery</option>
+                                        <option value="ByPass">ByPass</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class='col-md-3'>
+                                <div class="form-group">
+                                    <label>Admitted Date</label>
+                                    <div class='input-group date' id='datetimepicker6'>
+                                        <input type='text' class="form-control"/>
+                                        <span class="input-group-addon">
+                                             <span class="glyphicon glyphicon-calendar"></span>
+                                         </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Due Date</label>
+                                <div class='input-group date' id='datetimepicker7'>
+                                    <input type='text' class="form-control"/>
+                                    <span class="input-group-addon">
+                                             <span class="glyphicon glyphicon-calendar"></span>
+                                         </span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group pull-right">
+                                    <button class="btn btn-success" id="add" ng-click="Add(ward)">Add to List</button>
+                                    <button class="btn btn-warning" id="clear" ng-click="clearData()" onclick="enableAddButton()">
+                                        Clear
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="page-header">
+                <h3><strong>Doctor Details</strong></h3>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover" id="data-table">
+
+                        <tr>
+                            <th>Department</th>
+                            <th> Ward </th>
+                            <th> Floor No </th>
+                            <th> Ward No  </th>
+                            <th> Bed No </th>
+                            <th> Consulatant </th>
+                            <th> Doctor In Charge </th>
+                            <th> Edit</th>
+                            <th> Delete</th>
+
+                        </tr>
+
+
+                        <tr ng-repeat="manageRoomDetails in RoomDetails">
+                            <td> {{value}} </td>
+                            <td> {{value}} </td>
+                            <td> {{value}} </td>
+                            <td> {{value}} </td>
+                            <td> {{value}} </td>
+                            <td> {{value}} </td>
+                            <td> {{value}} </td>
+                            <td>
+                                <button class="btn btn-warning btn-sm" ng-click="EditData(oneWard)"
+                                        onclick="enableUpdateButtons()">Edit <span
+                                        class="glyphicon glyphicon-pencil"></span></button>
+                            </td>
+                            <td>
+                                <button class="btn btn-danger btn-sm" ng-click="DeleteData(oneWard)">Delete <span
+                                        class="glyphicon glyphicon-trash"></span>
+                                </button>
+                            </td>
+
+                        </tr>
+
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-header">
+            <h3><strong>Surgery Details</strong></h3>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover" id="data-table2">
+
+                        <tr>
+                            <th> Ward Category </th>
+                            <th> Bed No </th>
+                            <th> Availability </th>
+                            <th> Admitted Date </th>
+                            <th> Floor No </th>
+                            <th> Edit</th>
+                            <th> Delete</th>
+                        </tr>
+
+
+                        <tr ng-repeat="manageRoomDetails in RoomDetails">
+                            <td> {{value}} </td>
+                            <td> {{value}} </td>
+                            <td> {{value}} </td>
+                            <td> {{value}} </td>
+                            <td> {{value}} </td>
+                            <td>
+                                <button class="btn btn-warning btn-sm" ng-click="EditData(oneWard)"
+                                        onclick="enableUpdateButtons()">Edit <span
+                                        class="glyphicon glyphicon-pencil"></span></button>
+                            </td>
+                            <td>
+                                <button class="btn btn-danger btn-sm" ng-click="DeleteData(oneWard)">Delete <span
+                                        class="glyphicon glyphicon-trash"></span>
+                                </button>
+                            </td>
+
+                        </tr>
+
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group pull-right">
+
+
+                    <button class="btn btn-success btn-sm" ng-click="" onclick="">Save changers</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html ng-app="SearchApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Patient</title>
+
+
+
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/coin-slider.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dynatable/0.3.1/jquery.dynatable.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.js"></script>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+    <script src="../Controller/controller.js"></script>
+    <script src="../Controller/app.js"></script>
+    <script src="../Controller/CriticalController.js"></script>
+
+
+</head>
+<body ng-controller="SearchController">
+<div id="page">
+    <div class="header"><img src="../img/logoPCU%20(2).jpg" height="174" width="721"/>
+        <h1 class="text-info">Search Patients</h1>
+
+    </div>
+</div>
+
+<div class="container">
+    <div class="navigation">
+        <div class="page-header">
+        </div>
+
+        <div class="well well-lg">
+            <div class="container-fluid">
+                <h3><strong>Search Patient</strong></h3>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Title</label>
+
+                                <select ng-model="SearchText.Title" class="form-control">
+                                    <option value="">--</option>
+                                    <option value="Miss.">Miss</option>
+                                    <option value="Mrs.">Mrs</option>
+                                    <option value="Mr.">Mr</option>
+                                    <option value="Rev.">Rev</option>
+                                    <option value="Dr.">Dr</option>
+                                    <opapption value="Prof.">Prof</opapption>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-3" >
+                            <div class="form-group">
+                                <label>Fist Name</label>
+                                <input class="form-control" ng-model="SearchText.FirstName">
+                            </div>
+                        </div>
+
+                        <div class="col-md-3" >
+                            <div class="form-group">
+                                <label>Last Name</label>
+                                <input class="form-control" ng-model="SearchText.LastName">
+                            </div>
+                        </div>
+
+                        <div class="col-md-3" >
+                            <div class="form-group">
+                                <label>NIC</label>
+                                <input class="form-control" ng-model="SearchText.NIC">
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="page-header">
+            <h3> <strong>Patient Details</strong></h3>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover" id="data-table">
+
+                        <tr>
+                            <th>Title</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Date of Birth</th>
+                            <th>Age</th>
+                            <th>NIC</th>
+                            <th>Nationality</th>
+                            <th>Civil Status</th>
+                            <th>Address</th>
+                            <th>Register Date</th>
+                            <th>Surgery|Treatments</th>
+                            <th>Status</th>
+
+                        </tr>
+
+
+
+
+                        <tr ng-repeat="patient in patients | filter:SearchText | filter:{ Status: 'Critical' }">
+                            <td>{{patient.Title}}</td>
+                            <td>{{patient.FirstName}}</td>
+                            <td>{{patient.LastName}}</td>
+                            <td>{{patient.DateofBirth}}</td>
+                            <td>{{patient.Age}}</td>
+                            <td>{{patient.NIC}}</td>
+                            <td>{{patient.Nationality}}</td>
+                            <td>{{patient.CivilStatus}}</td>
+                            <td>{{patient.Address}}</td>
+                            <td>{{patient.RegisterDate}}</td>
+                            <td>{{patient.Surgery_Treatments}}</td>
+                            <td>{{patient.Status}}</td>
+
+
+                        </tr>
+
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-header">
+            <h3> <strong>Doctor Details</strong></h3>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+
+                        <tr>
+                            <th>Doctor ID</th>
+                            <th>Doctor Name</th>
+                            <th>Speciality</th>
+
+                        </tr>
+
+
+
+                        <tr ng-repeat="doctor in Doctors ">
+                            <td>{{doctor.Id}}</td>
+                            <td>{{doctor.Name}}</td>
+                            <td>{{doctor.Speciality}}</td>
+
+                        </tr>
+
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group pull-right">
+
+
+                    <button  class="btn btn-success btn-sm" ng-click="" onclick="" >Admit Patient</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>

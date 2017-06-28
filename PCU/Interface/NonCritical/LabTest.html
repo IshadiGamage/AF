@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+    <script src="../Controller/app.js"></script>
+    <script src="../Controller/controller.js"></script>
+    <title> Lab Test Page </title>
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+<body>
+<div id="content">
+    <div id="header">
+        <h1>Lab Test Details</h1>
+        <ul class="navigation">
+            <li id="link1" ng-controller="ManageLabTest" ng-click="redirectToGoogle()"> <a ng-href="#/ManageLabTest">
+                Manage Lab Test Details
+            </a></li>
+
+            <li id="link2" ng-controller="SearchLabTest" ng-click="redirectToGoogle()"> <a ng-href="#/SearchLabTest">
+                Search Lab Test Details
+            </a></li>
+        </ul>
+    </div>
+
+</div>
+
+</body>
+</html>

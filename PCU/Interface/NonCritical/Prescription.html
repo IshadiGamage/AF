@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+    <script src="../Controller/app.js"></script>
+    <script src="../Controller/controller.js"></script>
+    <title> Prescription Page </title>
+    <link rel="stylesheet" href="../CSS/style.css">
+
+</head>
+
+<body >
+
+<div id="content">
+    <div id="header">
+        <h1>Prescription Details</h1>
+        <ul class="navigation">
+            <li ng-controller="ManagePrescription" ng-click="redirectToGoogle()"> <a ng-href="#/ManagePrescription">
+                Manage Prescription Details
+            </a></li>
+
+            <li ng-controller="SearchPrescription" ng-click="redirectToGoogle()"> <a ng-href="#/SearchPrescription">
+                Search Prescription Details
+            </a></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

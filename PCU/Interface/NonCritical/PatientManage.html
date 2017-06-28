@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+    <script src="../Controller/app.js"></script>
+    <script src="../Controller/controller.js"></script>
+    <title> Prescription Page </title>
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+
+<body >
+
+<div id="content">
+    <div id="header">
+        <h1>Prescription Details</h1>
+        <ul class="navigation">
+            <li ng-controller="CheckHistory" ng-click="redirectToGoogle()"> <a ng-href="#/CheckHistory">
+                Check History
+            </a></li>
+            <li ng-controller="AssignDoc" ng-click="redirectToGoogle()"> <a ng-href="#/AssignDoc">
+                Assign Doctorts and Nurse
+            </a></li>
+            <li  ng-controller="AssignWord" ng-click="redirectToGoogle()"> <a ng-href="#/AssignWord">
+                Assign Words
+            </a></li>
+            <li ng-controller="NewCheck" ng-click="redirectToGoogle()"> <a ng-href="#/NewCheck">
+                New Check Details
+            </a></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

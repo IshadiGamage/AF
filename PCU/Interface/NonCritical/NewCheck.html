@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>PCU Management</title>
+
+
+    <script src="history.module.js"></script>
+    <script src="main.controller.js"></script>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/FormCss.css">
+    <link rel="stylesheet" href="../CSS/Button.css">
+
+</head>
+<body ng-app="PCUApp">
+
+<h1 class="header">Search Patients</h1>
+
+</div>
+<div class="content">
+<div class="container">
+
+</div>
+    <div class="navigation">
+    <form>
+        <table border="0">
+
+        <TR>
+            <div class="search_box">
+            <TD>Patient ID </TD><TD><input type="text" placeholder="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}"><input type="submit" value=""></TD>
+            </div>
+        </TR>
+        <tr></tr><tr></tr><tr></tr><tr></tr>
+
+            <tr>
+                <td><b><h3>Patient Details</h3></b></td></tr><tr></tr>
+
+
+            <TR>
+                <TD>Full Name  </TD><TD> <input type="text" placeholder="Full Name" ngmodel="fname"> </TD>
+            </TR>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+
+
+            <TR>
+                <TD>Address           </TD><TD> <input type="text" placeholder="Address" ngmodel="lname"> </TD>
+            </TR>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+
+            <TR>
+                <TD>NIC          </TD><TD> <input type="text" placeholder="NIC" ngmodel="fname"></TD>
+            </TR>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+
+            <TR>
+                <TD>Contact No         </TD><TD> <input type="text" placeholder="No" ngmodel="fname"></TD>
+            </TR>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+
+
+            <TR>
+                <TD>Age          </TD><TD> <input type="text" placeholder="Age" ngmodel="fname"></TD>
+            </TR>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+            <tr></tr><tr></tr><tr></tr><tr></tr><tr>
+
+            <TR>
+                <TD>Gender </TD>
+                <TD><input type="radio" ng-model="gender" value="male">Male
+                    <input type="radio" ng-model="gender" value="female">Female</TD>
+            </TR>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+            <TR>
+                <TD>Blood Group </TD>
+                <TD><input type="radio" ng-model="myVar" value="year1">A+
+                    <input type="radio" ng-model="myVar" value="year2">A-</TD>
+            </TR>
+            <TR>
+                <TD>       </TD>
+                <TD><input type="radio" ng-model="myVar" value="year3">B+
+                    <input type="radio" ng-model="myVar" value="year4">B-</TD>
+            </TR>
+            <TR>
+                <TD>       </TD>
+                <TD><input type="radio" ng-model="myVar" value="year3">O+
+                    <input type="radio" ng-model="myVar" value="year4">O-</TD>
+            </TR>
+            <TR>
+                <TD>       </TD>
+                <TD><input type="radio" ng-model="myVar" value="year3">AB+
+                    <input type="radio" ng-model="myVar" value="year4">AB-</TD>
+            </TR>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+
+            <TR>
+                <TD>Weight(kg)          </TD><TD> <input type="text" placeholder="Weight" ngmodel="lname"> </TD>
+            </TR>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+
+            <TR>
+                <TD>Height(cm)          </TD><TD> <input type="text" placeholder="Height" ngmodel="fname"></TD>
+            </TR>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+
+            <tr>
+                <td><b><h3>Guardian Details</h3></b></td></tr><tr></tr>
+
+            <TR>
+                <TD>Guardian Name  </TD><TD> <input type="text" placeholder="Full Name" ngmodel="fname"> </TD>
+            </TR>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+
+
+            <TR>
+                <TD>Address           </TD><TD> <input type="text" placeholder="Address" ngmodel="lname"> </TD>
+            </TR>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+
+            <TR>
+                <TD>Contact No         </TD><TD> <input type="text" placeholder="No" ngmodel="fname"></TD>
+            </TR>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+
+
+            <tr>
+                <td><b><h3>Room Details</h3></b></td></tr><tr></tr>
+
+            <TR>
+                <TD>Room No  </TD><TD> <input type="text" placeholder="room no" ngmodel="fname"> </TD>
+            </TR>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+
+
+            <TR>
+                <TD>Floor No </TD><TD> <input type="text" placeholder="floor no" ngmodel="lname"> </TD>
+            </TR>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+            <TR>
+
+                <TD>
+
+                </TD>
+                <TD>
+                    <div>
+                    <button ng-click="myFunc()" class="button"><b>Check Availability</b></button>
+                    <br/><br/><br/>
+                    </div>
+                </TD>
+
+            </TR>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+
+            <table style="width:100%"; border="1">
+                <thread>
+                    <tr>
+                        <th height="30"> Ward No    </th>
+                        <th> Ward Category </th>
+                        <th> Bed No </th>
+                        <th> Availability </th>
+                        <th> Building </th>
+                        <th> Floor No </th>
+                        <th> Floor No </th>
+                    </tr>
+                    <tr ng-repeat="checkHistory in prescriptions">
+                        <th height="30"> {{value}} </th>
+                        <th> {{value}} </th>
+                        <th> {{value}} </th>
+                        <th> {{value}} </th>
+                        <th> {{value}} </th>
+                        <th> {{value}} </th>
+                        <th> {{value}} </th>
+
+                    </tr>
+                </thread>
+            </table>
+
+
+        </table>
+    </form>
+    </div>
+</div>
+
+<div class="footer-bottom">
+    <div class="wrap">
+        <div class="copy">
+            <p> © 2017 SE WEEKEND Group  All rights Reserved | Design by Layangi</p>
+        </div>
+    </div>
+</div>
+</body>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>PCU</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+    <script src="../JavaScript/Controller/app.js"></script>
+    <script src="../JavaScript/Controller/controller.js"></script>
+    <link rel="stylesheet" href="../JavaScript/CSS/style.css">
+    <link rel="stylesheet" href="../CSS/FormCss.css">
+    <link rel="stylesheet" href="../CSS/Button.css">
+
+
+</head>
+<div id="page">
+    <div class="header"><img src="../img/logoPCU%20(2).jpg" height="174" width="721"/>
+        <h1> Assign Ward For Patients </h1>
+    </div>
+</div>
+<div>
+
+
+
+    <form>
+        <div style="float: left">
+
+            <table border="0">
+                <tr>
+                    <td><b><h3>Check Ward Details</h3></b></td></tr><tr></tr>
+
+                <TR>
+                    <TD width="220">Department</TD><TD width="300">
+                    <select >
+                        <option value="PATHOLOGY">PATHOLOGY</option>
+                        <option value="RADIOLOGY">RADIOLOGY</option>
+                        <option value="STD">STD</option>
+                        <option value="CARDIOLOGY">CARDIOLOGY</option>
+                    </select>
+                </TD>
+
+                </TR>
+                <tr></tr><tr></tr><tr></tr><tr></tr>
+                <tr></tr><tr></tr><tr></tr><tr></tr>
+                <tr></tr><tr></tr><tr></tr><tr></tr>
+
+
+
+                <TR>
+                    <TD width="220">Ward Category </TD><TD width="300">
+                    <select >
+                        <option value="MEDICINE">MEDICINE</option>
+                        <option value="SURGERY">SURGERY</option>
+                        <option value="PAEDIATRICS">PAEDIATRICS</option>
+                        <option value="CARDIOLOGY">CARDIOLOGY</option>
+                        <option value="ONCOLOGY">ONCOLOGY</option>
+                        <option value="OPTHALMOLOGY">OPTHALMOLOGY</option>
+                        <option value="RHEUMATOLOGY">RHEUMATOLOGY</option>
+                        <option value="NEUROLOGY">NEUROLOGY</option>
+                        <option value="ENT">ENT</option>
+                        <option value="DERMATOLOGY">DERMATOLOGY</option>
+                    </select>
+                </TD>
+
+                </TR>
+
+                </TR>
+                <tr></tr><tr></tr><tr></tr><tr></tr>
+                <tr></tr><tr></tr><tr></tr><tr></tr>
+                <tr></tr><tr></tr><tr></tr><tr></tr>
+
+
+                <TR>
+                    <TD>          </TD><TD> <button ng-click="myFunc()" class="button"><b>Check Availability</b></button> </TD>
+                </TR>
+                <tr></tr><tr></tr><tr></tr><tr></tr>
+                <tr></tr><tr></tr><tr></tr><tr></tr>
+                <tr></tr><tr></tr><tr></tr><tr></tr>
+
+
+                <table style="width:100%"; border="1">
+                    <thread>
+                        <tr>
+                            <th height="30"> Department  </th>
+                            <th> Ward Category </th>
+                            <th> Floor No</th>
+                            <th> Ward No   </th>
+                            <th> Bed No </th>
+                            <th> Availability </th>
+
+
+                        </tr>
+                        <tr ng-repeat="manageRoomDetails in RoomDetails">
+                            <th height="30"> {{value}} </th>
+                            <th> {{value}} </th>
+                            <th> {{value}} </th>
+                            <th> {{value}} </th>
+                            <th> {{value}} </th>
+                            <th> {{value}} </th>
+
+
+                        </tr>
+                    </thread>
+                </table>
+            </table>
+
+        </div>
+    </form>
+
+
+    <div style="float: right">
+
+        <table border="0">
+            <tr>
+                <td><b><h3> Edit Ward Details</h3></b></td></tr><tr></tr>
+
+            <TR>
+                <TD width="220">Patient ID  </TD><TD width="300"> <input type="text" placeholder="patient id" ngmodel="fname"> </TD>
+            </TR>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+
+
+            <TR>
+                <TD>Department </TD><TD> <input type="date" placeholder="department" ngmodel="lname"> </TD>
+            </TR>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+
+            <TR>
+                <TD>Ward Category </TD><TD> <input type="date" placeholder="category" ngmodel="lname"> </TD>
+            </TR>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+
+            <TR>
+                <TD width="220">Ward No  </TD><TD width="300"> <input type="text" placeholder="ward no" ngmodel="fname"> </TD>
+            </TR>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+
+            <TR>
+                <TD>Bed No </TD><TD> <input type="text" placeholder="bed no" ngmodel="bed no"> </TD>
+            </TR>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+
+
+            <TR>
+                <TD>Admitted Date </TD><TD> <input type="date" placeholder="admitted date" ngmodel="lname"> </TD>
+            </TR>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+
+            <TR>
+                <TD>Discharged Date </TD><TD> <input type="date" placeholder="discharged date" ngmodel="lname"> </TD>
+            </TR>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+
+
+            <TD width="300">    </TD><TD> <button ng-click="myFunc()" class="button"><b>Save</b></button>
+
+            <button ng-click="myFunc()" class="button"><b>Update</b></button>
+            <button ng-click="myFunc()" class="button"><b>Delete</b></button>
+        </TD>
+
+            </TR>
+
+            </TR>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+            <tr></tr><tr></tr><tr></tr><tr></tr>
+
+        </table>
+
+        <table style="width:100%"; border="1">
+            <thread>
+                <tr>
+                    <th height="30"> Deapartment   </th>
+                    <th> Ward Category </th>
+                    <th> Ward No </th>
+                    <th> Bed No </th>
+                    <th> Admitted Date </th>
+                    <th> Discharged Date </th>
+
+                </tr>
+                <tr ng-repeat="manageRoomDetails in prescriptions">
+                    <th height="30"> {{value}} </th>
+                    <th> {{value}} </th>
+                    <th> {{value}} </th>
+                    <th> {{value}} </th>
+                    <th> {{value}} </th>
+                    <th> {{value}} </th>
+
+                </tr>
+            </thread>
+        </table>
+
+    </div>
+
+
+    </form>
+</div>
+
+
+
+</html>
+
+
+
