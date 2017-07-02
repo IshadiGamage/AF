@@ -3,7 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Main</title>
-       <style>
+    <link rel="stylesheet" href="../JavaScript/CSS/style.css">
+
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../JavaScript/Controller/app.js"></script>
+    <script src="../JavaScript/Controller/controller.js"></script>
+    <script src="../bower_components/angular-route/angular-route.min.js"></script>
+
+    <style>
         * {box-sizing:border-box}
         body {font-family: Verdana,sans-serif;}
         .mySlides {display:none}
@@ -73,54 +81,41 @@
             .text {font-size: 11px}
         }
     </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
-    <link rel="stylesheet" href="CSS/style.css">
-    <script src="Controller/controller.js"></script>
-    <script src="Controller/app.js"></script>
-    <script src="Controller/PresController.js"></script>
-    <script src="jquery.min.js"></script>
-
 </head>
 <body>
-
 <div class="header">
-    <div class="header_resize"><img src="img/logoPCU (2).jpg" height="174" width="721"/>
+    <div class="header_resize"><img src="../JavaScript/img/logoPCU (2).jpg" height="174" width="721"/>
         <div class="menu_nav">
-            <ul>
-                <li><a ng-href="Admission-Registration"><span>Registration-Admission</span></a></li>
-                <li><a ng-href="Critical"><span>Critical Patient</span></a></li>
-                <li><a ng-href="NonCritical"><span>Non-Critical Patient</span></a></li>
-                <li><a ng-href="Prescription"><span>Prescription</span></a></li>
-            </ul>
-
-            <div ng-view></div>
-        </div>
+                <ul>
+                    <li ng-controller="Reg-Admin" ng-click="redirectToGoogle()"> <a ng-href="#/Reg-Admin"><span>Registration-Admission</span></a></li>
+                    <li ng-controller="CriticalHome" ng-click="redirectToGoogle()"> <a ng-href="#/Critical"><span>Critical Patient</span></a></li>
+                    <li ng-controller="NonCritical" ng-click="redirectToGoogle()"> <a ng-href="#/NonCritical"><span>Non-Critical Patient</span></a></li>
+                </ul>
+            </div>
             <div class="clr"></div>
         <div class="slideshow-container">
 
             <div class="mySlides fade">
                 <div class="numbertext">1 / 4</div>
-               <img src="img/team.jpg" height="450" width="935"/>
+                <img src="../JavaScript/img/team.jpg" height="450" width="935"/>
                 <div class="text">Our Team</div>
             </div>
 
             <div class="mySlides fade">
                 <div class="numbertext">2 / 4</div>
-               <img src="img/managementL.jpg" height="450" width="935"/>
+                <img src="../JavaScript/img/managementL.jpg" height="450" width="935"/>
                 <div class="text">Medicine</div>
             </div>
 
             <div class="mySlides fade">
                 <div class="numbertext">3 / 4</div>
-               <img src="img/wVJJAYcO.png" height="450" width="935"/>
+                <img src="../JavaScript/img/wVJJAYcO.png" height="450" width="935"/>
                 <div class="text">Doctors</div>
             </div>
 
             <div class="mySlides fade">
                 <div class="numbertext">4 / 4</div>
-                <img src="img/lab.jpg" height="450" width="935"/>
+                <img src="../JavaScript/img/lab.jpg" height="450" width="935"/>
                 <div class="text">Lab Test</div>
             </div>
 

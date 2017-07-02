@@ -3,34 +3,27 @@
 <head>
     <title>Primari Unit Care</title>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
-    <script src="../Controller/app.js"></script>
-    <script src="../Controller/controller.js"></script>
+    <script src="../../bower_components/angular/angular.min.js"></script>
+    <script src="../../bower_components/angular/angular.js"></script>
+    <script src="../../JavaScript/Controller/app.js"></script>
+    <script src="../../JavaScript/Controller/controller.js"></script>
     <script src="../../bower_components/angular-route/angular-route.min.js"></script>
-    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../../JavaScript/CSS/style.css">
 
 </head>
 
 <body>
 <div id="page">
     <div id="header">
-        <ul id="navigation"><img src="../img/logoPCU%20(2).jpg" height="174" width="721"/>
+        <ul id="navigation"><img src="../../JavaScript/img/logoPCU%20(2).jpg" height="174" width="721"/>
             <h1>Critical Patient</h1>
             <li id="link1" ng-controller="SearchPatient" ng-click="redirectToGoogle()"> <a ng-href="#" >
                 Patient Management
             </a></li>
-            <li id="link2" ng-controller="ManageWardDetails" ng-click="redirectToGoogle()"> <a ng-href="#">
+            <li id="link4" ng-controller="ManageWardDetails" ng-click="redirectToGoogle()"> <a ng-href="#">
                 Ward Management
             </a></li>
-            <li id="link3" ng-controller="Prescription"> <a ng-href="#/Prescription">
-                Prescription Details
-            </a></li>
 
-            <li id="link4" ng-controller="LabTest"> <a ng-href="#/LabTest">
-                Lab Test Details
-            </a></li>
             <li></li>
 
         </ul>

@@ -1,113 +1,69 @@
 <!DOCTYPE html>
-<html ng-app="SearchPres">
+<html ng-app>
 <head>
     <meta charset="UTF-8">
-    <title>Search prescription</title>
-
-
-
-    <link rel="stylesheet" href="../CSS/style.css">
-    <link rel="stylesheet" href="../CSS/coin-slider.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dynatable/0.3.1/jquery.dynatable.css">
-
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.js"></script>
-
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
-
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-            crossorigin="anonymous"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
-    <script src="../Controller/controller.js"></script>
-    <script src="../Controller/app.js"></script>
-    <script src="../Controller/PresController.js"></script>
-
+    <link rel="stylesheet" href="../../JavaScript/CSS/TableCss.css">
+    <link rel="stylesheet" href="../../JavaScript/CSS/Button.css">
+    <link rel="stylesheet" href="../../JavaScript/CSS/FormCss.css">
+    <title>Search Precription</title>
+    <link rel="stylesheet" href="../../JavaScript/CSS/style.css">
+    <script src="../../JavaScript/Controller/PresController.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.32/angular.min.js"></script>
 
 </head>
-<body ng-controller="SearchController">
+<body>
 <div id="page">
-    <div class="header"><img src="../img/logoPCU%20(2).jpg" height="174" width="721"/>
-        <h1 class="text-info">Search Prescription Detauls</h1>
-
+    <div class="header"><img src="../../JavaScript/img/logoPCU%20(2).jpg" height="174" width="721"/>
+        <h1> Search Prescription page </h1>
     </div>
 </div>
+<div class="content" ng-controller="SearchPres">
 
-<div class="container">
-    <div class="navigation">
-        <div class="page-header">
-        </div>
-
-        <div class="well well-lg">
-            <div class="container-fluid">
-                <h3><strong>Search Prescription</strong></h3>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label>Patient ID</label>
-                                <input type="text" ng-model="searchVal.patientID" class="form-control">
-                            </div>
-                        </div>
-                        <div class="col-md-3" >
-                            <div class="form-group">
-                                <label>Category</label>
-                                <select ng-model="searchVal.testName" class="form-control">
-                                    <option>Necotics</option>
-                                    <option>Injections</option>
-                                </select>
-                            </div>
-                        </div>
-
-
-                    </div>
+    <form>
+        <div class="navigation">
+            <div style="float: left">
+                <div>
+                    <h4>Patient ID </h4>
+                    <input type="text" ng-model="searchVal.patientID">
                 </div>
+                <br/>
+                <div>
+                    <h4>Category </h4>
+                    <select>
 
+                    </select>
+                </div>
+                <br/>
+                <div>
+                  <!--  <button class="button">Search Prescription</button>-->
+                </div><br/>
             </div>
         </div>
+        <div style="float: right">
+        <table>
+            <thead>
+                <tr>
+                    <th> Patient ID </th>
+                    <th> Prescription Code </th>
+                    <th> Prescription Name </th>
+                    <th> Categoty</th>
+                    <th> Unit </th>
+                    <th> Quantity </th>
+                </tr>
+                <tr ng-repeat="Prescription in prescriptions |filter:searchVal">
+                    <th> {{Prescription.patientID}} </th>
+                    <th> {{Prescription.prescriptionCode}} </th>
+                    <th> {{Prescription.prescriptionName}} </th>
+                    <th> {{Prescription.category}} </th>
+                    <th> {{Prescription.unit}} </th>
+                    <th> {{Prescription.quantity}} </th>
 
-        <div class="page-header">
-            <h3> <strong>Prescription Details</strong></h3>
+                </tr>
+            </thead>
+        </table>
         </div>
 
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="table-responsive">
-                    <table class="table table-bordered table-hover" id="data-table">
-
-                        <tr>
-                            <th> Patient ID </th>
-                            <th> Prescription Code </th>
-                            <th> Prescription Name </th>
-                            <th> Categoty</th>
-                            <th> Unit </th>
-                            <th> Quantity </th>
-
-                        </tr>
-
-                        <tr ng-repeat="Prescription in prescriptions |filter:searchVal">
-                            <td> {{Prescription.patientID}} </td>
-                            <td> {{Prescription.prescriptionCode}} </td>
-                            <td> {{Prescription.prescriptionName}} </td>
-                            <td> {{Prescription.category}} </td>
-                            <td> {{Prescription.unit}} </td>
-                            <td> {{Prescription.quantity}} </td>
-
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-    </div>
+    </form>
 </div>
 </body>
+</html>

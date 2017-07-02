@@ -2730,7 +2730,7 @@ function jqLiteDocumentLoaded(action, win) {
 }
 
 //////////////////////////////////////////
-// Routers which are declared directly.
+// Functions which are declared directly.
 //////////////////////////////////////////
 var JQLitePrototype = JQLite.prototype = {
   ready: function(fn) {
@@ -2771,7 +2771,7 @@ var JQLitePrototype = JQLite.prototype = {
 };
 
 //////////////////////////////////////////
-// Routers iterating getter/setters.
+// Functions iterating getter/setters.
 // these functions return self on setter and
 // value on get.
 //////////////////////////////////////////
@@ -3022,7 +3022,7 @@ function createEventHandler(element, events) {
 }
 
 //////////////////////////////////////////
-// Routers iterating traversal.
+// Functions iterating traversal.
 // These functions chain results into a single
 // selector.
 //////////////////////////////////////////

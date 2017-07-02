@@ -1,125 +1,55 @@
 <!DOCTYPE html>
-<html ng-app="app">
+<html ng-app>
 <head>
     <meta charset="UTF-8">
-    <title>Prescription Management</title>
-
-
-    <link rel="stylesheet" href="../CSS/style.css">
-    <link rel="stylesheet" href="../CSS/coin-slider.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dynatable/0.3.1/jquery.dynatable.css">
-
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
-    <link rel="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker-standalone.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.js"></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
-
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
-    <script src="../Controller/controller.js"></script>
-    <script src="../Controller/app.js"></script>
-    <script src="../Controller/PresController.js"></script>
-    <script src="../Routers/Prescription.route.js"></script>
-
+    <link rel="stylesheet" href="../../JavaScript/CSS/FormCss.css">
+    <link rel="stylesheet" href="../../JavaScript/CSS/TableCss.css">
+    <link rel="stylesheet" href="../../JavaScript/CSS/style.css">
+    <title> Manage prescription </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.32/angular.min.js"></script>
+    <script src="../../node_modules/angular-route/angular-route.js"></script>
+    <script src="../../node_modules/angular-route/angular-route.min.js"></script>
+    <link rel="stylesheet" href="../../JavaScript/CSS/Button.css">
 
 </head>
-<body ng-controller="Prescription">
+<body>
 <div id="page">
-    <div class="header"><img src="../img/logoPCU%20(2).jpg" height="174" width="721"/>
-        <h1 class="text-info">Prescription Details Management</h1>
-
+    <div class="header"><img src="../../JavaScript/img/logoPCU%20(2).jpg" height="174" width="721"/>
+        <h1> Manage Prescription page</h1>
     </div>
 </div>
+<div class="content" ng-controller="ManagePrescription">
+        <form>
+        <div class="navigation">
+            <h4>  Patient ID</h4>
+            <input type="text" name="id" ng-model="prescription.pid"><br/>
 
-<div class="container">
-    <div class="navigation">
-        <div class="page-header">
+            <h4>  Prescription Code</h4>
+            <input type="text" name="code" ng-model="prescription.presCode"><br/>
+
+            <h4> Prescription Name </h4>
+            <input type="text" name="name" ng-model="prescription.presName"><br/>
+
+            <h4>Category </h4>
+            <input type="text" name="category" ng-model="prescription.category"> <br/>
+
+            <h4>Unit Type</h4>
+            <input type="text" name="uni" ng-model="prescription.unit"><br/>
+
+            <h4> Quantity </h4>
+            <input type="number" name="qty" ng-model="prescription.qty"><br/>
+
+            </th>
+            <br/>
+            <div> <button ng-click="AddPrescriptio()" class="button"> Add </button> </div><br/>
+            <div> <button ng-click="EditPrescription(prescription._id)" class="button"> Update </button> </div>
         </div>
 
-        <div class="well well-lg">
-            <div class="container-fluid">
-                <h3><strong>Prescription Details</strong></h3>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Patient ID </label>
-                                <input type='text' class="form-control" ng-model=""/>
-                            </div>
-                        </div>
-
-
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Prescription Code</label>
-                                <input type='text' class="form-control"ng-model="" />
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Prescription Name</label>
-                                <input type='text' class="form-control" ng-model=""/>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Category</label>
-                                <input type='text' class="form-control" ng-model=""/>
-                            </div>
-                        </div>
-
-                        <div class="container">
-                            <div class='col-md-3'>
-                                <div class="form-group">
-                                    <label>Unit Type</label>
-                                    <input type='text' class="form-control" ng-model=""/>
-                                </div>
-                            </div>
-                            <div class='col-md-3 '>
-                                <div class="form-group">
-                                    <label>Quantity</label>
-                                        <input type='text' class="form-control" ng-model=""/>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group pull-right">
-                                    <button class="btn btn-success" id="add" ng-click="Add(ward)">Add</button>
-                                    <button class="btn btn-warning" id="clear" ng-click="clearData()" onclick="enableAddButton()">
-                                        Clear
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-
-        <div class="page-header">
-            <h3><strong>Add Prescription</strong></h3>
-        </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="table-responsive">
-                    <table class="table table-bordered table-hover" id="data-table1">
-
+    </form>
+        <div style="float: right">
+                <br/>
+                <table>
+                    <thead>
                         <tr>
                             <th> Patient ID </th>
                             <th> Prescription Code </th>
@@ -127,101 +57,20 @@
                             <th> Category </th>
                             <th> Unit Type</th>
                             <th> Quantity </th>
-                            <th> Edit </th>
-                            <th> Delete</th>
                         </tr>
-
-
                         <tr ng-repeat="Prescription in prescriptions">
-                            <td> {{Prescription.patientID}} </td>
-                            <td> {{Prescription.prescriptionCode}} </td>
-                            <td> {{Prescription.prescriptionName}} </td>
-                            <td> {{Prescription.category}} </td>
-                            <td> {{Prescription.unit}} </td>
-                            <td> {{Prescription.quantity}} </td>
-                            <td>
-                                <button class="btn btn-warning btn-sm" ng-click="editPres(Prescription._id)"
-                                        onclick="enableUpdateButtons()">Edit <span
-                                        class="glyphicon glyphicon-pencil"></span></button>
-                            </td>
-                            <td>
-                                <button class="btn btn-danger btn-sm" ng-click="deletePres(Prescription._id)">Delete <span
-                                        class="glyphicon glyphicon-trash"></span>
-                                </button>
-                            </td>
-
-                        </tr>
-
-                    </table>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group pull-right">
-                            <button class="btn btn-success" id="add2" ng-click="Add(ward)">Save/Send</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                            <th> {{Prescription.patientID}} </th>
+                            <th> {{Prescription.prescriptionCode}} </th>
+                            <th> {{Prescription.prescriptionName}} </th>
+                            <th> {{Prescription.unit}} </th>
+                            <th> {{Prescription.quantity}} </th>
+                    </thead>
+                </table>
         </div>
-
-        <div class="page-header">
-            <h3><strong>Prescription Details</strong></h3>
-        </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="table-responsive">
-                    <table class="table table-bordered table-hover" id="data-table2">
-
-                        <tr>
-                            <th> Patient ID </th>
-                            <th> Prescription Code </th>
-                            <th> Prescription Name </th>
-                            <th> Category </th>
-                            <th> Unit Type</th>
-                            <th> Quantity </th>
-                            <th> Edit </th>
-                            <th> Delete</th>
-                        </tr>
-
-
-                        <tr ng-repeat="Prescription in prescriptions">
-                            <td> {{Prescription.patientID}} </td>
-                            <td> {{Prescription.prescriptionCode}} </td>
-                            <td> {{Prescription.prescriptionName}} </td>
-                            <td> {{Prescription.category}} </td>
-                            <td> {{Prescription.unit}} </td>
-                            <td> {{Prescription.quantity}} </td>
-                            <td>
-                                <button class="btn btn-warning btn-sm" ng-click="editPres(Prescription._id)"
-                                        onclick="enableUpdateButtons()">Edit <span
-                                        class="glyphicon glyphicon-pencil"></span></button>
-                            </td>
-                            <td>
-                                <button class="btn btn-danger btn-sm" ng-click="deletePres(Prescription._id)">Delete <span
-                                        class="glyphicon glyphicon-trash"></span>
-                                </button>
-                            </td>
-
-                        </tr>
-
-
-                    </table>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group pull-right">
-
-                    <button class="btn btn-success btn-sm" ng-click="" onclick="">Save changers</button>
-
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
+</body>
+
+
+
 </body>
 </html>

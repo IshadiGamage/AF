@@ -1,21 +1,41 @@
 <!DOCTYPE html>
 <html ng-app="app">
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
-    <script src="../Controller/app.js"></script>
-    <script src="../Controller/controller.js"></script>
+    <script src="../../bower_components/angular/angular.min.js"></script>
+    <script src="../../bower_components/angular/angular.js"></script>
+    <script src="../../JavaScript/Controller/app.js"></script>
+    <script src="../../JavaScript/Controller/controller.js"></script>
+    <script src="../../bower_components/angular-route/angular-route.min.js"></script>
     <title> Patient Page </title>
-    <link rel="stylesheet" href="../CSS/style.css">
-    <script src="../Controller/app.js"></script>
-    <script src="../Controller/controller.js"></script>
+    <link rel="stylesheet" href="../../JavaScript/CSS/style.css">
+
+    <script src="../../bower_components/angular/angular.min.js"></script>
+    <script src="../../bower_components/angular/angular.js"></script>
+    <script src="../../JavaScript/Controller/app.js"></script>
+    <script src="../../JavaScript/Controller/controller.js"></script>
+    <script src="../../bower_components/angular-route/angular-route.min.js"></script>
 </head>
 
 <body >
+<!--
+<div id="content">
+    <div id="header">
+
+        <ul class="navigation">
+            <li id="link1" ng-controller="Admission" ng-click="redirectToGoogle()"> <a ng-href="#/Admission">
+                Admission
+            </a></li>
+
+            <li id="link2" ng-controller="Registration" ng-click="redirectToGoogle()"> <a ng-href="#/Registration">
+                Registration
+            </a></li>
+        </ul>
+    </div>
+</div>
+-->
 <div id="page">
     <div id="header">
-        <ul id="navigation"><img src="../img/logoPCU%20(2).jpg" height="174" width="721"/>
+        <ul id="navigation"><img src="../../JavaScript/img/logoPCU%20(2).jpg" height="174" width="721"/>
             <h1>Patient Details</h1>
             <li id="link1" ng-controller="Admission" ng-click="redirectToGoogle()"> <a ng-href="#/Admission">
                 Admission
@@ -23,19 +43,12 @@
             <li id="link2" ng-controller="Registration" ng-click="redirectToGoogle()"> <a ng-href="#/Registration">
                 Registration
             </a></li>
-            <li id="link4" ng-controller="Prescription" ng-click="redirectToGoogle()"> <a ng-href="#/Prescription">
-                Prescription Details
-            </a></li>
-
-            <li id="link5" ng-controller="LabTest"> <a ng-href="#/LabTest">
-                Lab Test Details
-            </a></li>
-
 
         </ul>
     </div>
 
 </div>
+<!--<div><img src="../JavaScript/img/page1_img4.jpg" height="200" width="285"/></div>-->
 <div ng-view></div>
 </body>
 </html>

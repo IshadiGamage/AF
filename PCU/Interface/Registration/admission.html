@@ -1,217 +1,114 @@
 <!DOCTYPE html>
-<html ng-app="SearchAdmission">
+<html ng-app>
 <head>
     <meta charset="UTF-8">
-    <title>Admission</title>
-
-
-    <link rel="stylesheet" href="../CSS/style.css">
-    <link rel="stylesheet" href="../CSS/coin-slider.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dynatable/0.3.1/jquery.dynatable.css">
-
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
-    <link rel="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker-standalone.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.js"></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
-
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
-    <script src="../Controller/controller.js"></script>
-    <script src="../Controller/app.js"></script>
-    <script src="../Controller/adminController.js"></script>
-
-
+    <link rel="stylesheet" href="../../JavaScript/CSS/FormCss.css">
+    <link rel="stylesheet" href="../../JavaScript/CSS/Button.css">
+    <link rel="stylesheet" href="../../JavaScript/CSS/TableCss.css">
+    <title> Patient Admission </title>
+    <link rel="stylesheet" href="../../JavaScript/CSS/style.css">
+    <script src="../../JavaScript/Controller/adminController.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.32/angular.min.js"></script>
 </head>
-<body ng-controller="SearchController">
+
+<body>
 <div id="page">
-    <div class="header"><img src="../img/logoPCU%20(2).jpg" height="174" width="721"/>
-        <h1 class="text-info">Patient Admission</h1>
-
+    <div class="header"><img src="../../JavaScript/img/logoPCU%20(2).jpg" height="174" width="721"/>
+        <h1> Patient Admission</h1>
     </div>
 </div>
+<div class="content"  ng-controller="SearchAdmission">
+    <form>
+        <div class="navigation">
 
-<div class="container">
-    <div class="navigation">
-        <div class="page-header">
+            <h4>  Admission Number</h4>
+            <input type="text" name="id" placeholder="Admission Number" ><br/>
+
+            <h4> First  Name</h4>
+            <input type="text" name="firstName" placeholder="First Name" ng-model="admission.firstName"><br/>
+
+            <h4>  Last Name</h4>
+            <input type="text" name="lastName" placeholder="Last Name" ng-model="admission.lastName"><br/>
+
+            <h4> Date Of Birth</h4>
+            <input type="text" name="dob" placeholder="Date of Birth" ng-model="admission.dob"><br/>
+
+            <h4>Age </h4>
+            <input type="text" name="age" placeholder="Age" ng-model="admission.age"> <br/>
+
+            <h4> Blood Group </h4>
+            <input list="bloodGroup" name="blood" placeholder="Blood Group" ng-model="admission.blood">
+            <datalist id="bloodGroup">
+                <option value="A+"></option>
+                <option value="A-"></option>
+                <option value="B+"></option>
+                <option value="B-"></option>
+                <option value="AB+"></option>
+                <option value="AB-"></option>
+                <option value="O+"></option>
+                <option value="O-"></option>
+            </datalist>
+            <br/>
+            <h4> Bed Type </h4>
+            <input type="text" name="bedtype" placeholder="Bed Type" ng-model="admission.bedtype"><br/>
+
+
+            <h4> Department </h4>
+            <input type="text" name="department" placeholder="Department" ng-model="admission.department"><br/>
+
+            <h4>Gurantor's Name </h4>
+            <input type="text" name="gname" placeholder="Gurantor's Name" ng-model="admission.gname"><br/>
+
+            <h4>Gurantor's Phone</h4>
+            <input type="text" name="gphone" placeholder="Gurantor's Phone" ng-model="admission.gphone"><br/>
+
+
+            </th>
+            <br/>
+            <div> <button> Add </button> </div><br/>
+            <div> <button> Update </button> </div>
         </div>
 
-        <div class="well well-lg">
-            <div class="container-fluid">
-                <h3><strong>Admission Details</strong></h3>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Admission Number</label>
-                                <input type='text' name="admissionNumber" class="form-control" ng-model=""  placeholder="Admission Number" />
-                            </div>
-                        </div>
+    </form>
+    <div style="float: right">
+        <br/>
+        Search : <input type="text" placeholder="Search" ng-model="searchText"/><br><br><br>
+        <table>
+            <thead>
+                <tr>
+                    <th> Admission Number </th>
+                    <th> First Name </th>
+                    <th> Last Name </th>
+                    <th> Date Of Birth </th>
+                    <th> Age </th>
+                    <th> Blood Group</th>
+                    <th> Bed Type </th>
+                    <th> Department </th>
+                    <th> Gurantor's Name </th>
+                    <th> Gurantor's Phone Number </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="admission in admissions | filter:searchText">
+                    <td> {{admission.id}} </td>
+                    <td> {{admission.firstName}} </td>
+                    <td> {{admission.lastName}} </td>
+                    <td> {{admission.dob | date: "dd/MM/yyyy"}} </td>
+                    <td> {{admission.age |number}} </td>
+                    <td> {{admission.blood}} </td>
+                    <td> {{admission.bedtype}} </td>
+                    <td> {{admission.department}} </td>
+                    <td> {{admission.gname}} </td>
+                    <td> {{admission.gphone}} </td>
 
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>First  Name</label>
-                                <input type="text" name="firstName" placeholder="First Name" ng-model="admission.firstName" class="form-control">
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Last Name</label>
-                                <input type="text" name="lastName" placeholder="Last Name" ng-model="admission.lastName" class="form-control">
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Date Of Birth</label>
-                                <div class='input-group date' id='datetimepicker6'>
-                                    <input type="text" name="dob" placeholder="Date of Birth" ng-model="admission.dob" class="form-control">
-                                    <span class="input-group-addon">
-                                             <span class="glyphicon glyphicon-calendar"></span>
-                                         </span>
-                                </div>
-                            </div>
-                        </div>
-
-
-                            <div class='col-md-4'>
-                                <div class="form-group">
-                                    <label>Age</label>
-                                    <input type="text" name="age" placeholder="Age" ng-model="admission.age"  class="form-control">
-                                </div>
-                            </div>
-                            <div class='col-md-4'>
-                                <div class="form-group">
-                                    <label>Blood Group</label>
-                                    <input list="bloodGroup" name="blood" placeholder="Blood Group" ng-model="admission.blood"  class="form-control">
-                                    <datalist id="bloodGroup">
-                                        <option value="A+"></option>
-                                        <option value="A-"></option>
-                                        <option value="B+"></option>
-                                        <option value="B-"></option>
-                                        <option value="AB+"></option>
-                                        <option value="AB-"></option>
-                                        <option value="O+"></option>
-                                        <option value="O-"></option>
-                                    </datalist>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Bed Type</label>
-                                <input type="text" name="bed" placeholder="Bed Type" ng-model="admission.bed" class="form-control">
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Gurantor's Name</label>
-                                <input type="text" name="gname" placeholder="Gurantor's Name" ng-model="admission.gname" class="form-control">
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Gurantor's Phone</label>
-                                <input type="text" name="gphone" placeholder="Gurantor's Phone" ng-model="admission.gphone" class="form-control">
-                            </div>
-                        </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group pull-right">
-                                    <button class="btn btn-success" id="add" ng-click="Add(ward)">Add</button>
-                                    <button class="btn btn-warning" id="clear" ng-click="clearData()" onclick="enableAddButton()">
-                                        Clear
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="page-header">
-            <h3><strong>Admission Details</strong></h3>
-        </div>
-
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="table-responsive">
-                    <table class="table table-bordered table-hover" id="data-table">
-
-                        <tr>
-                            <th> Admission Number </th>
-                            <th> First Name </th>
-                            <th> Last Name </th>
-                            <th> Date Of Birth </th>
-                            <th> Age </th>
-                            <th> Blood Group</th>
-                            <th> Bed Type </th>
-                            <th> Department </th>
-                            <th> Gurantor's Name </th>
-                            <th> Gurantor's Phone Number </th>
-                            <th> Edit </th>
-                            <th> Delete</th>
-                        </tr>
-
-
-                        <tr ng-repeat="admission in admissions | filter:searchText">
-                            <td> {{admission.id}} </td>
-                            <td> {{admission.firstName}} </td>
-                            <td> {{admission.lastName}} </td>
-                            <td> {{admission.dob | date: "dd/MM/yyyy"}} </td>
-                            <td> {{admission.age |number}} </td>
-                            <td> {{admission.blood}} </td>
-                            <td> {{admission.bedtype}} </td>
-                            <td> {{admission.department}} </td>
-                            <td> {{admission.gname}} </td>
-                            <td> {{admission.gphone}} </td>
-                            <td>
-                                <button class="btn btn-warning btn-sm" ng-click="editPres(Prescription._id)"
-                                        onclick="enableUpdateButtons()">Edit <span
-                                        class="glyphicon glyphicon-pencil"></span></button>
-                            </td>
-                            <td>
-                                <button class="btn btn-danger btn-sm" ng-click="deletePres(Prescription._id)">Delete <span
-                                        class="glyphicon glyphicon-trash"></span>
-                                </button>
-                            </td>
-
-                        </tr>
-
-
-                    </table>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group pull-right">
-
-
-                    <button class="btn btn-success btn-sm" ng-click="" onclick="">Save changes</button>
-
-                </div>
-            </div>
-        </div>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
+</body>
+
+
+
 </body>
 </html>

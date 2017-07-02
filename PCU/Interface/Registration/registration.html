@@ -1,225 +1,123 @@
 <!DOCTYPE html>
-<html ng-app="SearchApp">
+<html ng-app>
 <head>
     <meta charset="UTF-8">
-    <title>Patient Registration</title>
-
-
-    <link rel="stylesheet" href="../CSS/style.css">
-    <link rel="stylesheet" href="../CSS/coin-slider.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dynatable/0.3.1/jquery.dynatable.css">
-
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
-    <link rel="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker-standalone.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.js"></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
-
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
-    <script src="../Controller/controller.js"></script>
-    <script src="../Controller/app.js"></script>
-    <script src="../Controller/adminController.js"></script>
-
+    <link rel="stylesheet" href="../../JavaScript/CSS/FormCss.css">
+    <link rel="stylesheet" href="../../JavaScript/CSS/Button.css">
+    <link rel="stylesheet" href="../../JavaScript/CSS/TableCss.css">
+    <title> Patient Registration </title>
+    <link rel="stylesheet" href="../../JavaScript/CSS/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.32/angular.min.js"></script>
+    <script src="../../node_modules/angular-route/angular-route.js"></script>
+    <script src="../../node_modules/angular-route/angular-route.min.js"></script>
 
 </head>
-<body ng-controller="">
+<body>
 <div id="page">
-    <div class="header"><img src="../img/logoPCU%20(2).jpg" height="174" width="721"/>
-        <h1 class="text-info">Patient Registration</h1>
-
+    <div class="header"><img src="../../JavaScript/img/logoPCU%20(2).jpg" height="174" width="721"/>
+        <h1> Patient Registration</h1>
     </div>
 </div>
+<div class="content" ng-controller="Registration">
+    <form>
+        <div class="navigation">
 
-<div class="container">
-    <div class="navigation">
-        <div class="page-header">
+            <h4>  Admission Number</h4>
+            <input type="text" name="admissionNo" placeholder="Admission Number" ng-model="registration.id"><br/>
+
+            <h4>  First Name</h4>
+            <input type="text" name="firstName" placeholder="First Name" ng-model="registration.firstName"><br/>
+
+            <h4> Last Name</h4>
+            <input type="text" name="lastName" placeholder="Last Name" ng-model="registration.lastName"><br/>
+
+            <h4> Date Of Birth</h4>
+            <input type="text" name="dob" placeholder="Date Of Birth" ng-model="registration.dob"><br/>
+
+            <h4> Age</h4>
+            <input type="text" name="age" placeholder="Age" ng-model="registration.age"><br/>
+
+
+            <h4>Address </h4>
+            <input type="text" name="address" placeholder="Addresss" ng-model="registration.address"> <br/>
+
+            <h4>Gender</h4>
+            <input type="radio" name="gender" value="m" ng-model="registration.gender">Male
+            <input type="radio" name="gender" value="f" ng-model="registration.gender">Female<br/>
+
+            <h4> Blood Group </h4>
+            <input list="bloodGroup" name="blood" placeholder="Blood Group" ng-model="registration.blood">
+            <datalist id="bloodGroup">
+                <option value="A+"></option>
+                <option value="A-"></option>
+                <option value="B+"></option>
+                <option value="B-"></option>
+                <option value="AB+"></option>
+                <option value="AB-"></option>
+                <option value="O+"></option>
+                <option value="O-"></option>
+            </datalist>
+            <br/>
+
+            <h4>Status </h4>
+            <input type="label" name="status" ng-model="registration.status"> <br/>
+
+            <h4>Date Of Admission</h4>
+            <input type="text" name="admsiondate" placeholder="Date Of Admission" ng-model="registration.admsiondate"> <br/>
+
+            <h4>Gurantor's Name</h4>
+            <input type="text" name="gname" placeholder="Gurantor's Name" ng-model="registration.gname"> <br/>
+
+            <h4>Gurantor's Phone</h4>
+            <input type="text" name="gphone" placeholder="Gurantor's Phone" ng-model="registration.gphone"> <br/>
+
+
+            </th>
+            <br/>
+            <div> <button> Add </button> </div><br/>
+            <div> <button> Update </button> </div>
         </div>
 
-        <div class="well well-lg">
-            <div class="container-fluid">
-                <h3><strong>Registration Details</strong></h3>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Registration Number</label>
-                                <input type='text' name="registrationNo" class="form-control" ng-model="registration.id"  placeholder="Registration Number" />
-                            </div>
-                        </div>
+    </form>
+    <div style="float: right">
+        <br/>
+        Search : <input type="text" placeholder="Search" ng-model="searchText"/><br><br><br>
+        <table>
+            <thead>
+                <tr>
+                    <th> Admission Number </th>
+                    <th> First Name </th>
+                    <th> Last Name </th>
+                    <th> Date Of Birth </th>
+                    <th> Address </th>
+                    <th> Gender</th>
+                    <th> Blood Group</th>
+                    <th> Hospital Admission Type</th>
+                    <th> Date Of Admission </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="registration  in registrations | filter:searchText">
+                    <td> {{registration.id}} </td>
+                    <td> {{registration.firstName}} </td>
+                    <td> {{registration.lastName}} </td>
+                    <td> {{registration.dob}} </td>
+                    <td> {{registration.age}} </td>
+                    <td> {{registration.address}} </td>
+                    <td> {{registration.gender}} </td>
+                    <td> {{registration.blood}} </td>
+                    <td> {{registration.type}} </td>
+                    <td> {{registration.admsiondate}} </td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
 
 
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>First  Name</label>
-                                <input type="text" name="firstName" placeholder="First Name" ng-model="registration.firstName" class="form-control">
-                            </div>
-                        </div>
 
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Last Name</label>
-                                <input type="text" name="lastName" placeholder="Last Name" ng-model="registration.lastName" class="form-control">
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Date Of Birth</label>
-                                <div class='input-group date' id='datetimepicker6'>
-                                    <input type="text" name="dob" placeholder="Date of Birth" ng-model="registration.dob" class="form-control"><br/>
-                                    <span class="input-group-addon">
-                                             <span class="glyphicon glyphicon-calendar"></span>
-                                         </span>
-                                </div>
-                            </div>
-                        </div>
-
-
-                            <div class='col-md-4'>
-                                <div class="form-group">
-                                    <label>Age</label>
-                                    <input type="text" name="age" placeholder="Age" ng-model="registration.age"  class="form-control">
-                                </div>
-                            </div>
-
-
-                                <div class='col-md-4'>
-                                    <div class="form-group">
-                                        <label>Address</label>
-                                        <input type="text" name="address" placeholder="Address" ng-model="registration.address"  class="form-control">
-                                    </div>
-                                </div>
-
-                                    <div class='col-md-4'>
-                                        <div class="form-group">
-                                            <label>Gender</label>
-                                            <input type="radio" name="gender" value="m" ng-model="registration.gender" class="form-control">Male
-                                            <input type="radio" name="gender" value="f" ng-model="registration.gender" class="form-control">Female
-                                        </div>
-                                    </div>
-
-                                    <div class='col-md-4'>
-                                        <div class="form-group">
-                                            <label>Blood Group</label>
-                                            <input list="bloodGroup" name="blood" placeholder="Blood Group" ng-model="registration.blood"  class="form-control">
-                                            <datalist id="bloodGroup">
-                                                <option value="A+"></option>
-                                                <option value="A-"></option>
-                                                <option value="B+"></option>
-                                                <option value="B-"></option>
-                                                <option value="AB+"></option>
-                                                <option value="AB-"></option>
-                                                <option value="O+"></option>
-                                                <option value="O-"></option>
-                                            </datalist>
-                                        </div>
-                                    </div>
-
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>Hospital Admission Type</label>
-                                        <input type="text" name="type" placeholder="Hospital Admission Type" ng-model="registration.type" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>Date Of Admission</label>
-                                        <input type="text" name="admsiondate" placeholder="Date Of Admission" ng-model="registration.admsiondate" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group pull-right">
-                                            <button class="btn btn-success" id="add" ng-click="Add(ward)">Add</button>
-                                            <button class="btn btn-warning" id="clear" ng-click="clearData()" onclick="enableAddButton()">
-                                                Clear
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="page-header">
-                    <h3><strong>Registration Details</strong></h3>
-                </div>
-
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-hover" id="data-table">
-
-                                <tr>
-                                    <th> Admission Number </th>
-                                    <th> First Name </th>
-                                    <th> Last Name </th>
-                                    <th> Date Of Birth </th>
-                                    <th> Address </th>
-                                    <th> Gender</th>
-                                    <th> Blood Group</th>
-                                    <th> Hospital Admission Type</th>
-                                    <th> Date Of Admission </th>
-                                    <th> Edit </th>
-                                    <th> Delete</th>
-                                </tr>
-
-
-                                <tr ng-repeat="registration  in registrations | filter:searchText">
-                                    <td> {{registration.id}} </td>
-                                    <td> {{registration.firstName}} </td>
-                                    <td> {{registration.lastName}} </td>
-                                    <td> {{registration.dob}} </td>
-                                    <td> {{registration.age}} </td>
-                                    <td> {{registration.address}} </td>
-                                    <td> {{registration.gender}} </td>
-                                    <td> {{registration.blood}} </td>
-                                    <td> {{registration.type}} </td>
-                                    <td> {{registration.admsiondate}} </td>
-
-                                </tr>
-                                <button class="btn btn-warning btn-sm" ng-click="editPres(Prescription._id)"
-                                        onclick="enableUpdateButtons()">Edit <span
-                                        class="glyphicon glyphicon-pencil"></span></button>
-                                </td>
-                                <td>
-                                    <button class="btn btn-danger btn-sm" ng-click="deletePres(Prescription._id)">Delete <span
-                                            class="glyphicon glyphicon-trash"></span>
-                                    </button>
-                                </td>
-
-                                </tr>
-
-
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group pull-right">
-
-
-                            <button class="btn btn-success btn-sm" ng-click="" onclick="">Save changers</button>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 </body>
 </html>
